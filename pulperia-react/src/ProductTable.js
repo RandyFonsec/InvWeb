@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './styles.css'; // Importa el archivo CSS
+
 function ProductTable({ products }) {
   return (
-    <table>
+    <table className="tableStyle">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -18,8 +20,8 @@ function ProductTable({ products }) {
             <td>{product.precio}</td>
             <td>{product.cantidad}</td>
             <td>
-              <button >Editar</button>
-              <button >Eliminar</button>
+              <button className="buttonStyleSec">Editar</button>
+              <button className="buttonStyleSec">Eliminar</button>
             </td>
           </tr>
         ))}

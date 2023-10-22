@@ -1,28 +1,31 @@
 /* styles.css */
 
 .container {
+  background-color: white;
   display: flex;
   height: 100vh;
   width: 100vw;
 }
 
 .sideBar {
-  background-color: green;
+  background-color: lightgray;
   width: 5%;
   height: 100vh;
 }
-
 .mainContent {
   display: flex;
+  background-color: white;
   flex-direction: column;
   width: 95%;
   height: 100vh;
+  padding: 0 1rem; /* 10 rem de margen izquierdo y derecho */
+  margin-top: 2rem; /* 30 rem de margen superior */
 }
 
 .topBar {
-  background-color: yellow;
   height: 25%;
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
@@ -37,4 +40,66 @@
   background-color: red;
   color: white;
   margin-left: 5rem; /* Agrega un margen de 5rem a la izquierda */
+}
+
+.buttonStyle:active {
+  background-color: blue; /* Cambia el color de fondo al hacer clic */
+  color: yellow; /* Cambia el color del texto al hacer clic */
+}
+
+
+/*TABLA PRODUCTOS*/
+.tableStyle {
+  background-color: white;
+  border: 1px solid #ccc; /* Borde de 1px con un tono gris */
+  border-radius: 10px; /* Bordes redondeados */
+  margin: 30px auto; /* Margen en todas las direcciones */
+  border-spacing: 10px; /* Espacio entre celdas (columnas) */
+  width: 100%; /* Ancho del 100% para centrar la tabla */
+}
+
+/* styles.css */
+
+/* Estilo para filas pares (grisaceo) */
+.tableStyle tr:nth-child(even) {
+  background-color: #f2f2f2; /* Tono grisaceo */
+}
+
+/* Estilo para filas impares (blanco) */
+.tableStyle tr:nth-child(odd) {
+  background-color: #fff; /* Blanco */
+}
+
+/* Estilo para los encabezados de la tabla */
+.tableStyle th {
+  background-color: #333; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+}
+
+/* Estilo para las celdas */
+.tableStyle th, .tableStyle td {
+  padding: 10px; /* Espaciado interior de las celdas */
+  text-align: center; /* Centra el contenido de las celdas */
+  transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Efecto hover en las filas */
+.tableStyle tr:hover {
+  background-color: lightgray; /* Cambia el color de fondo en hover */
+}
+
+.buttonStyleSec {
+  border-radius: 8px;
+  background-color: red;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.buttonStyleSec:hover {
+  background-color: darkred;
+}
+
+.buttonStyleSec:active {
+  background-color: blue;
+  color: yellow;
 }

@@ -40,7 +40,6 @@ app.use((req, res, next) => {
 //CRUD Producto
 // Ruta para obtener todos los productos
 app.get('/productos', (req, res) => {
-  console.log("Asking");
   db.query('SELECT * FROM producto', (err, results) => {
     if (err) {
       res.status(500).json({ error: err.message });
