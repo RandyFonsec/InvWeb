@@ -103,3 +103,37 @@
   background-color: blue;
   color: yellow;
 }
+
+
+/*MODAL*/
+.modal {
+  position: fixed; /* Posición fija para que el modal no se desplace con el contenido */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra completamente */
+  background-color: white;
+  z-index: 999; /* Asegura que el modal esté en la parte superior de otros elementos */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  /* Estilos específicos para el contenido del modal */
+}
+
+/* Otros estilos de tu modal */
+.close-button {
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical según tu diseño */
+  right: 10px; /* Ajusta la posición horizontal según tu diseño */
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
+
+.close-button:hover {
+  color: darkred;
+}

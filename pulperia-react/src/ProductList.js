@@ -8,7 +8,6 @@ function ProductList() {
     fetch('http://localhost:3000/productos') // Realiza una solicitud a la ruta de la API '/productos'
       .then((response) => response.json())
       .then((data) => {
-
         setProducts(data);
       })
       .catch((error) => {

@@ -2,7 +2,12 @@ import React from 'react';
 
 import './styles.css'; // Importa el archivo CSS
 
-function ProductTable({ products }) {
+
+function ProductTable({ products, onEdit }) {
+  const handleEditClick = (product) => {
+    onEdit(product);
+  };
+
   return (
     <table className="tableStyle">
       <thead>
@@ -20,7 +25,7 @@ function ProductTable({ products }) {
             <td>{product.precio}</td>
             <td>{product.cantidad}</td>
             <td>
-              <button className="buttonStyleSec">Editar</button>
+              <button className="buttonStyleSec" onClick={() => handleEditClick(product)}>Editar</button>
               <button className="buttonStyleSec">Eliminar</button>
             </td>
           </tr>
@@ -29,5 +34,6 @@ function ProductTable({ products }) {
     </table>
   );
 }
+
 
 export default ProductTable;
