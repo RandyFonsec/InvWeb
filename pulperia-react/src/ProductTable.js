@@ -3,9 +3,12 @@ import React from 'react';
 import './styles.css'; // Importa el archivo CSS
 
 
-function ProductTable({ products, onEdit }) {
+function ProductTable({ products, onEdit, onDelete }) {
   const handleEditClick = (product) => {
     onEdit(product);
+  };
+  const handleDeleteClick = (product) => {
+    onDelete(product); // Pasa el producto seleccionado a la función onDelete
   };
 
   return (
@@ -26,7 +29,7 @@ function ProductTable({ products, onEdit }) {
             <td>{product.cantidad}</td>
             <td>
               <button className="buttonStyleSec" onClick={() => handleEditClick(product)}>Editar</button>
-              <button className="buttonStyleSec">Eliminar</button>
+              <button className="buttonStyleSec" onClick={() => handleDeleteClick(product)}>Eliminar</button>
             </td>
           </tr>
         ))}

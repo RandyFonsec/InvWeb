@@ -89,7 +89,6 @@ app.get('/productos/:codigo', (req, res) => {
 
 // Ruta para actualizar un producto por ID
 app.put('/productos/:id', (req, res) => {
-  console.log(req.params)
   const id = req.params.id; // Obtén el ID del producto desde la URL
   const { nombreProducto, precio, cantidad } = req.body; // Datos actualizados desde el cuerpo de la solicitud
 

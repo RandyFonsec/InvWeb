@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
-function EditProductModal({ isOpen, onClose, product, onSave }) {
-  const [editedProduct, setEditedProduct] = useState(product);
-
-  useEffect(() => {
-    setEditedProduct(product); // Cargar los datos del producto seleccionado
-  }, [product]);
+function AddProductModal({ isOpen, onClose, onAdd }) {
+  const [newProduct, setNewProduct] = useState({
+    nombreProducto: '',
+    precio: '',
+    cantidad: '',
+    idCategoria: '',
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedProduct({ ...editedProduct, [name]: value });
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
-  const handleSave = () => {
-    onSave(editedProduct); // Enviar los cambios al guardar
+  const handleAdd = () => {
+    onAdd(newProduct);
     onClose();
   };
 
@@ -25,8 +26,8 @@ function EditProductModal({ isOpen, onClose, product, onSave }) {
   return (
     <div className="modal">
       <div className="modal-content">
-      <button className="close-button" onClick={onClose}>X</button> {/* Botón de cierre */}
-        <h2>Editar Producto</h2>
+      <button className="close-button" onClick={onClose}>X</button>
+        <h2>Agregar Producto</h2>
         <form>
           <div className="inputContainer">
             <label htmlFor="nombreProducto">Nombre:</label>
@@ -34,7 +35,7 @@ function EditProductModal({ isOpen, onClose, product, onSave }) {
               type="text"
               id="nombreProducto"
               name="nombreProducto"
-              value={editedProduct?.nombreProducto}
+              value={newProduct.nombreProducto}
               onChange={handleInputChange}
             />
           </div>
@@ -44,7 +45,7 @@ function EditProductModal({ isOpen, onClose, product, onSave }) {
               type="text"
               id="precio"
               name="precio"
-              value={editedProduct?.precio}
+              value={newProduct.precio}
               onChange={handleInputChange}
             />
           </div>
@@ -54,25 +55,27 @@ function EditProductModal({ isOpen, onClose, product, onSave }) {
               type="text"
               id="cantidad"
               name="cantidad"
-              value={editedProduct?.cantidad}
+              value={newProduct.cantidad}
               onChange={handleInputChange}
             />
           </div>
           <div className="inputContainer">
-            <label htmlFor="categoria">Categoría:</label>
+            <label htmlFor="idCategoria">Categoría:</label>
             <input
               type="text"
-              id="categoria"
-              name="categoria"
-              value={editedProduct?.idCategoria}
+              id="idCategoria"
+              name="idCategoria"
+              value={newProduct.idCategoria}
               onChange={handleInputChange}
             />
           </div>
-          <button className="buttonStyle" onClick={handleSave}>Guardar</button>
+          <button className="buttonStyle" onClick={handleAdd}>
+            Agregar
+          </button>
         </form>
       </div>
     </div>
   );
 }
 
-export default EditProductModal;
+export default AddProductModal;
