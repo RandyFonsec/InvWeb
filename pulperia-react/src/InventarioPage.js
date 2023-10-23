@@ -83,6 +83,23 @@ function InventarioPage() {
       });
   };
 
+  const deleteProduct = (productId) => {
+  // Realiza una solicitud DELETE al servidor para eliminar el producto
+  fetch(`http://localhost:3000/productos/${productId}`, {
+    method: 'DELETE',
+  })
+    .then((response) => response.json())
+    .then(() => {
+      // Elimina el producto del estado
+      const updatedProducts = products.filter((product) => product.id !== productId);
+      setProducts(updatedProducts);
+      setSearchResults(updatedProducts);
+    })
+    .catch((error) => {
+      console.error('Error al eliminar el producto:', error);
+    });
+};
+
   const handleSearchChange = (e) => {
     const { value } = e.target;
     setSearchTerm(value); // Actualizar el término de búsqueda
@@ -94,30 +111,47 @@ function InventarioPage() {
 
   return (
     <div className="container">
+
+
       <div className="sideBar">
         {/* Contenido del Side Bar */}
       </div>
 
-      <div className="mainContent">
-        <div className="topBar">
-          <div className="inputContainer">
-            <label htmlFor="buscarInput">Buscar:</label>
-            <input
-              type="text"
-              id="buscarInput"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-          </div>
-          <button className="buttonStyle" onClick={openAddModal}>
-            + Agregar producto
-          </button>
-        </div>
 
-        <div className="mainContent">
-          <ProductTable products={searchResults} onEdit={openEditModal} />
+      <div className="contentContainer">
+      
+      <div className="topBar">
+        {/* Contenido del Top Bar */}
+
+        <div className="inputContainer">
+          <label htmlFor="buscarInput">Buscar:</label>
+          <input
+            type="text"
+            id="buscarInput"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
         </div>
+        <button className="buttonStyle" onClick={openAddModal}>
+          + Agregar producto
+        </button>
+
+
       </div>
+
+      <div className="mainContent">
+          {/* Contenido Principal */}
+
+        <ProductTable products={searchResults} onEdit={openEditModal} onDelete={deleteProduct} />
+
+
+      </div>
+      
+
+      </div>
+
+
+
 
       <EditProductModal
         isOpen={isEditModalOpen}

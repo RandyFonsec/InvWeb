@@ -1,6 +1,4 @@
-/* styles.css */
-
-.container {
+.container{
   background-color: white;
   display: flex;
   height: 100vh;
@@ -12,22 +10,29 @@
   width: 5%;
   height: 100vh;
 }
-.mainContent {
-  display: flex;
+
+.contentContainer {
   background-color: white;
-  flex-direction: column;
-  width: 95%;
   height: 100vh;
-  padding: 0 1rem; /* 10 rem de margen izquierdo y derecho */
-  margin-top: 2rem; /* 30 rem de margen superior */
+  width: 95%;
 }
 
 .topBar {
   height: 25%;
   display: flex;
-
   justify-content: center;
   align-items: center;
+}
+
+.mainContent {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  width: 95%;
+  max-height: 75%; /* Cambia 'height' a 'max-height' */
+  overflow-y: scroll; 
+  height: 100vh;
+  padding: 0 1rem; /* 10 rem de margen izquierdo y derecho */
 }
 
 .inputContainer {
@@ -58,11 +63,11 @@
   width: 100%; /* Ancho del 100% para centrar la tabla */
 }
 
-/* styles.css */
 
 /* Estilo para filas pares (grisaceo) */
 .tableStyle tr:nth-child(even) {
   background-color: #f2f2f2; /* Tono grisaceo */
+  
 }
 
 /* Estilo para filas impares (blanco) */
@@ -82,6 +87,7 @@
   text-align: center; /* Centra el contenido de las celdas */
   transition: background-color 0.3s; /* Transición suave del color de fondo */
 }
+
 
 /* Efecto hover en las filas */
 .tableStyle tr:hover {

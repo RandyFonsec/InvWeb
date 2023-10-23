@@ -3,17 +3,24 @@ import React from 'react';
 import './styles.css'; // Importa el archivo CSS
 
 
+
 function ProductTable({ products, onEdit, onDelete }) {
   const handleEditClick = (product) => {
     onEdit(product);
   };
   const handleDeleteClick = (product) => {
-    onDelete(product); // Pasa el producto seleccionado a la función onDelete
+    console.log(product.id)
+    onDelete(product.id);
   };
 
   return (
+    <>
+    <h2 >Lista de productos:</h2>
+
     <table className="tableStyle">
-      <thead>
+
+        
+      <thead >
         <tr>
           <th>Nombre</th>
           <th>Precio</th>
@@ -35,6 +42,8 @@ function ProductTable({ products, onEdit, onDelete }) {
         ))}
       </tbody>
     </table>
+
+    </>
   );
 }
 
